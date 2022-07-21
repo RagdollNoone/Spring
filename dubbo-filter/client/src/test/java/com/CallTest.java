@@ -23,6 +23,4 @@ public class CallTest {
         String result = service.invoke(request);
         log.info("{}", result);
     }
-
-
 }
