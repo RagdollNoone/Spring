@@ -1,8 +1,8 @@
 package com.demo;
 
-import com.demo.exception.ExceptionHandler;
 import com.demo.service.UserService;
 import com.demo.service.UserServiceInterface;
+import com.exception.ExceptionHandler;
 import com.spring.ApplicationContext;
 
 public class DemoTest {

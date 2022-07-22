@@ -1,0 +1,5 @@
+> 这个项目主要验证如下的问题
+
+* 常规的dubbo filter的使用方式
+* provider的filter配置了group = {"provider", "consumer"} 并不会影响consumer端
+* 统一的异常处理filter 注意替换默认的ExceptionFilter 应该遵循SPI机制
