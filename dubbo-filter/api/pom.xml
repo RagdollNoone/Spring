@@ -20,9 +20,6 @@
         <dependency>
             <groupId>ragdollnoone</groupId>
             <artifactId>common</artifactId>
-            <version>${project.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/../../common/target/common-1.0.0-SNAPSHOT.jar</systemPath>
         </dependency>
 
         <dependency>
