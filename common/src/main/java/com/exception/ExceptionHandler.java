@@ -1,4 +1,4 @@
-package com.demo.exception;
+package com.exception;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
