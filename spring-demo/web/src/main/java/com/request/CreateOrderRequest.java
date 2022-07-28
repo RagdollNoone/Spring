@@ -1,7 +1,5 @@
 package com.request;
 
-import com.request.model.PayerInfo;
-import com.request.model.ProductInfo;
 import lombok.Data;
 import lombok.ToString;
 
@@ -12,9 +10,9 @@ import java.io.Serializable;
 public class CreateOrderRequest implements Serializable {
     private static final long serialVersionUID = -6136805379392751343L;
 
-    private String requestNo; // 请求id
+    private String requestNo; // 请求序列号
 
-    private ProductInfo product; // 商品信息
+    private Long productId; // 商品id
 
-    private PayerInfo payer; // 买家信息
+    private Long userId; // 用户id
 }
