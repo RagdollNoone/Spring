@@ -39,6 +39,7 @@
         <curator-framework.version>4.2.0</curator-framework.version>
         <zookeeper.version>3.4.8</zookeeper.version>
         <curator-recipes.version>4.2.0</curator-recipes.version>
+        <logback-classic.version>1.2.3</logback-classic.version>
 
         <!-- test依赖配置 -->
         <junit.version>4.12</junit.version>
@@ -126,6 +127,12 @@
                 <groupId>org.apache.curator</groupId>
                 <artifactId>curator-recipes</artifactId>
                 <version>${curator-recipes.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback-classic.version}</version>
             </dependency>
 
             <!-- test依赖配置 -->

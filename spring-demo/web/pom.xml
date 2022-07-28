@@ -22,6 +22,11 @@
             <groupId>spring-demo</groupId>
             <artifactId>service</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>ragdollnoone</groupId>
+            <artifactId>common</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
