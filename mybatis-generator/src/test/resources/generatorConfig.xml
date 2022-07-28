@@ -12,23 +12,29 @@
         </commentGenerator>
 
         <!--数据库链接URL，用户名、密码 -->
-        <!--        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
-        <!--                        connectionURL="jdbc:oracle:thin:@10.103.21.17:1521:zggpayptest"-->
-        <!--                        userId="channel_pay_front"-->
-        <!--                        password="channel_pay_front">-->
-        <!--        </jdbcConnection>-->
+<!--        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+<!--                        connectionURL="jdbc:oracle:thin:@10.103.21.17:1521:zggpayptest"-->
+<!--                        userId="channel_pay_front"-->
+<!--                        password="channel_pay_front">-->
+<!--        </jdbcConnection>-->
 
-        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"
-                        connectionURL="jdbc:oracle:thin:@10.103.21.17:1521:zggpayptest"
-                        userId="gpay"
-                        password="gpay_1234">
+<!--        <jdbcConnection driverClass="oracle.jdbc.OracleDriver"-->
+<!--                        connectionURL="jdbc:oracle:thin:@10.103.21.17:1521:zggpayptest"-->
+<!--                        userId="gpay"-->
+<!--                        password="gpay_1234">-->
+<!--        </jdbcConnection>-->
+
+<!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
+<!--                        connectionURL="jdbc:mysql://127.0.0.1:3306/gpay_alipay?useSSL=false"-->
+<!--                        userId="root"-->
+<!--                        password="727596853">-->
+<!--        </jdbcConnection>-->
+
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://10.103.20.52:3306/Spring?useSSL=false"
+                        userId="root"
+                        password="Zsh@727596853">
         </jdbcConnection>
-
-        <!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
-        <!--                        connectionURL="jdbc:mysql://127.0.0.1:3306/gpay_alipay?useSSL=false"-->
-        <!--                        userId="root"-->
-        <!--                        password="727596853">-->
-        <!--        </jdbcConnection>-->
 
         <!-- 生成模型的包名和位置-->
         <javaModelGenerator targetPackage="com.gpay.account.jdbc.entity" targetProject="./src/main/java">
