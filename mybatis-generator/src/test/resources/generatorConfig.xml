@@ -25,35 +25,35 @@
 <!--        </jdbcConnection>-->
 
 <!--        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"-->
-<!--                        connectionURL="jdbc:mysql://127.0.0.1:3306/gpay_alipay?useSSL=false"-->
+<!--                        connectionURL="jdbc:mysql://127.0.0.1:3306/gpay_alipay?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=exception&amp;useSSL=true&amp;serverTimezone=GMT%2B8"-->
 <!--                        userId="root"-->
 <!--                        password="727596853">-->
 <!--        </jdbcConnection>-->
 
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.103.20.52:3306/Spring?useSSL=false"
+                        connectionURL="jdbc:mysql://10.103.20.52:3306/Spring?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=exception&amp;useSSL=true&amp;serverTimezone=GMT%2B8"
                         userId="root"
                         password="Zsh@727596853">
         </jdbcConnection>
 
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.gpay.account.jdbc.entity" targetProject="./src/main/java">
+        <javaModelGenerator targetPackage="com.model" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <!-- 生成映射文件的包名和位置-->
-        <sqlMapGenerator targetPackage="persistence" targetProject="./src/main/resources">
+        <sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
         <!-- 生成DAO的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.gpay.account.jdbc.mapper" targetProject="./src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.repository" targetProject="./src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table schema="GPAY" tableName="EP_ACCOUNT" domainObjectName="EpAccountEntity" mapperName="EpAccountMapper"
-               enableCountByExample="false" enableUpdateByExample="false"
+        <table schema="Spring" tableName="order_detail_info" domainObjectName="OrderDetailInfo" mapperName="OrderDetailInfoMapper"
+               enableCountByExample="true" enableUpdateByExample="true"
                enableDeleteByExample="false" enableSelectByExample="true"
                selectByExampleQueryId="false"
         ></table>
