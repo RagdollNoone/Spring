@@ -12,9 +12,9 @@
     <artifactId>spring-demo</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>web</module>
-        <module>service</module>
-        <module>jdbc</module>
+        <module>spring-demo-web</module>
+        <module>spring-demo-service</module>
+        <module>spring-demo-jdbc</module>
     </modules>
 
     <properties>
@@ -26,19 +26,19 @@
         <dependencies>
             <dependency>
                 <groupId>spring-demo</groupId>
-                <artifactId>web</artifactId>
+                <artifactId>spring-demo-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>spring-demo</groupId>
-                <artifactId>service</artifactId>
+                <artifactId>spring-demo-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>spring-demo</groupId>
-                <artifactId>jdbc</artifactId>
+                <artifactId>spring-demo-jdbc</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

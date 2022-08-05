@@ -16,6 +16,7 @@
         <module>dubbo-demo</module>
         <module>dubbo-filter</module>
         <module>common</module>
+        <module>ehcache</module>
     </modules>
 
     <properties>

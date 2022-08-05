@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>spring-demo</groupId>
-    <artifactId>service</artifactId>
+    <artifactId>spring-demo-service</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>spring-demo</groupId>
-            <artifactId>jdbc</artifactId>
+            <artifactId>spring-demo-jdbc</artifactId>
         </dependency>
 
         <dependency>

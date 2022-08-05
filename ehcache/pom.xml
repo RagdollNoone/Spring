@@ -7,18 +7,14 @@
         <groupId>ragdollnoone</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>dubbo-filter</artifactId>
-    <groupId>dubbo-filter</groupId>
-
+    <artifactId>ehcache</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-        <module>dubbo-filter-api</module>
-        <module>dubbo-filter-client</module>
-        <module>dubbo-filter-server</module>
+        <module>ehcache-web</module>
+        <module>ehcache-service</module>
+        <module>ehcache-jdbc</module>
     </modules>
 
     <properties>
@@ -35,23 +31,22 @@
             </dependency>
 
             <dependency>
-                <groupId>dubbo-filter</groupId>
-                <artifactId>dubbo-filter-api</artifactId>
+                <groupId>ehcache</groupId>
+                <artifactId>ehcache-web</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>dubbo-filter</groupId>
-                <artifactId>dubbo-filter-client</artifactId>
+                <groupId>ehcache</groupId>
+                <artifactId>ehcache-service</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>dubbo-filter</groupId>
-                <artifactId>dubbo-filter-server</artifactId>
+                <groupId>ehcache</groupId>
+                <artifactId>ehcache-jdbc</artifactId>
                 <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

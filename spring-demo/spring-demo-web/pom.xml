@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>spring-demo</groupId>
-    <artifactId>jdbc</artifactId>
+    <artifactId>spring-demo-web</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -19,23 +19,14 @@
 
     <dependencies>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>spring-demo</groupId>
+            <artifactId>spring-demo-service</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <groupId>ragdollnoone</groupId>
+            <artifactId>common</artifactId>
         </dependency>
     </dependencies>
+
 </project>
