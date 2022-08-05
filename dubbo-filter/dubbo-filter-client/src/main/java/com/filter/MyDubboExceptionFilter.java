@@ -1,5 +1,6 @@
 package com.filter;
 
+import com.IResponse;
 import com.result.MyResult;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.dubbo.common.constants.CommonConstants;
@@ -19,8 +20,8 @@ public class MyDubboExceptionFilter implements Filter {
 
         try {
             result = invoker.invoke(invocation);
-        } catch (Throwable t) {
-            MyResult myResult = MyResult.newError();
+        } catch (RuntimeException t) {
+            MyResult<? extends IResponse> myResult = MyResult.newError();
             myResult.setRetMsg(t.getMessage());
 
             CompletableFuture c = new CompletableFuture ();
