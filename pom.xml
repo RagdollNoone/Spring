@@ -45,6 +45,9 @@
         <mybatis-spring-boot-starter.version>2.2.0</mybatis-spring-boot-starter.version>
         <druid-spring-boot-starter.version>1.2.8</druid-spring-boot-starter.version>
         <pagehelper-spring-boot-starter.version>1.4.1</pagehelper-spring-boot-starter.version>
+        <spring-boot-starter-cache.version>2.3.9.RELEASE</spring-boot-starter-cache.version>
+        <cache-api.version>1.1.1</cache-api.version>
+        <ehcache.version>3.8.1</ehcache.version>
 
         <!-- test依赖配置 -->
         <junit.version>4.12</junit.version>
@@ -162,6 +165,24 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper-spring-boot-starter.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-cache</artifactId>
+                <version>${spring-boot-starter-cache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.cache</groupId>
+                <artifactId>cache-api</artifactId>
+                <version>${cache-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.ehcache</groupId>
+                <artifactId>ehcache</artifactId>
+                <version>${ehcache.version}</version>
             </dependency>
 
             <!-- test依赖配置 -->
