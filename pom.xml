@@ -17,6 +17,7 @@
         <module>dubbo-filter</module>
         <module>common</module>
         <module>ehcache</module>
+        <module>tuling</module>
     </modules>
 
     <properties>
