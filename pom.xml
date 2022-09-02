@@ -49,6 +49,7 @@
         <spring-boot-starter-cache.version>2.3.9.RELEASE</spring-boot-starter-cache.version>
         <cache-api.version>1.1.1</cache-api.version>
         <ehcache.version>3.8.1</ehcache.version>
+        <spring-boot-start-aop.version>2.3.12.RELEASE</spring-boot-start-aop.version>
 
         <!-- test依赖配置 -->
         <junit.version>4.12</junit.version>
@@ -184,6 +185,12 @@
                 <groupId>org.ehcache</groupId>
                 <artifactId>ehcache</artifactId>
                 <version>${ehcache.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot-start-aop.version}</version>
             </dependency>
 
             <!-- test依赖配置 -->
