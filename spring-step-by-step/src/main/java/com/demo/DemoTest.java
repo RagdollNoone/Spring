@@ -13,9 +13,9 @@ public class DemoTest {
         ApplicationContext context = new ApplicationContext(AppConfig.class);
 
         // 不同的测试案例
-        test1(context);
-        test2(context);
-        test3(context);
+        test1(context); // 针对scope注解的测试 原型是不同的对象 单例是同一个对线
+//        test2(context);
+//        test3(context);
     }
 
     // 测试scope为singleton

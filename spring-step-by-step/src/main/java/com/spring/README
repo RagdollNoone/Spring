@@ -1,0 +1,12 @@
+1. 实现一个自己的ApplicationContext接收一个配置类作为参数
+2. 强化ApplicationContext 实现一个空的getBean方法   
+3. 实现ComponentScan注解 添加到配置类上面
+4. 强化ApplicationContext 实现扫描路径的逻辑
+5. 实现Component注解 添加到需要被扫描的类上面
+6. 添加Scope注解 添加到被扫描的类上面 确定对象创建的时机
+7. 引入BeanDefinition的概念 解决getBean方法和scan的逻辑交叉(解析一个class对象)
+8. 强化ApplicationContext 实现createBean方法
+9. 引入singletonObjects的概念 存储createBean方法的结果
+10.实现Autowired注解
+11.强化ApplicationContext 实现依赖注入的逻辑
+12.强化ApplicationContext 实现初始化接口执行逻辑   
