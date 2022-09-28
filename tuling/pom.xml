@@ -15,6 +15,7 @@
         <module>spring-lesson-1</module>
         <module>jvm-lesson-1</module>
         <module>spring-lesson-3</module>
+        <module>spring-lesson-4</module>
     </modules>
 
     <properties>
