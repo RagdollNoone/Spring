@@ -7,7 +7,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class AdminUserService {
-    @Value("michael")
+    // test6 7 8时需要打开
+//    @Value("michael")
     private AdminUser adminUser;
 
     public void printAdminUserName() {

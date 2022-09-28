@@ -8,10 +8,12 @@ import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
-import org.springframework.context.support.ConversionServiceFactoryBean;
 import org.springframework.core.io.Resource;
-
-import java.util.Collections;
+import org.springframework.core.type.AnnotationMetadata;
+import org.springframework.core.type.ClassMetadata;
+import org.springframework.core.type.classreading.MetadataReader;
+import org.springframework.core.type.classreading.SimpleMetadataReaderFactory;
+import org.springframework.stereotype.Component;
 
 public class Test {
     public static void main(String[] args) throws Exception {
@@ -25,7 +27,8 @@ public class Test {
 //        test5(context);
 //        test6(context);
 //        test7(context);
-        test8(context);
+//        test8(context);
+        test9();
 
         System.out.println("[Test][main]end");
     }
@@ -109,5 +112,25 @@ public class Test {
 
         AdminUserService adminUserService = (AdminUserService) context.getBean("adminUserService");
         adminUserService.printAdminUserName();
+    }
+
+    // 获取类信息 ASM实现
+    private static void test9() throws Exception {
+        SimpleMetadataReaderFactory simpleMetadataReaderFactory = new SimpleMetadataReaderFactory();
+        MetadataReader metadataReader = simpleMetadataReaderFactory.getMetadataReader("com.component.OrderService");
+
+        // 打印类信息
+        ClassMetadata classMetadata = metadataReader.getClassMetadata();
+        System.out.println("[Test][test9]className: " + classMetadata.getClassName());
+
+        // 打印注解信息
+        AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();
+        for (String annotationType : annotationMetadata.getAnnotationTypes()) {
+            System.out.println("[Test][test9]annotationType: " + annotationType);
+        }
+
+        // 递归探查注解信息
+        System.out.println("[Test][test9]has component annotation: " + annotationMetadata.hasAnnotation(Component.class.getName()));
+        System.out.println("[Test][test9]has component annotation: " + annotationMetadata.hasMetaAnnotation(Component.class.getName()));
     }
 }
