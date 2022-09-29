@@ -9,7 +9,8 @@ public class Test {
         System.out.println("[Test][main]start");
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        test1(context);
+//        test1(context);
+        test2(context);
 
         System.out.println("[Test][main]end");
     }
@@ -18,6 +19,11 @@ public class Test {
     private static void test1(AnnotationConfigApplicationContext context) {
         OrderService orderService1 = (OrderService) context.getBean("orderService");
         OrderService orderService2 = (OrderService) context.getBean("orderService", new UserService());
+    }
+
+    // bean创建时的依赖关系
+    private static void test2(AnnotationConfigApplicationContext context) {
+
     }
 
 }
