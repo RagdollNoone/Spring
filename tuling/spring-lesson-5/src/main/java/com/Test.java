@@ -10,7 +10,8 @@ public class Test {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
 //        test1(context);
-        test2(context);
+//        test2(context);
+        test3(context);
 
         System.out.println("[Test][main]end");
     }
@@ -24,6 +25,12 @@ public class Test {
     // bean创建时的依赖关系
     private static void test2(AnnotationConfigApplicationContext context) {
 
+    }
+
+    // bean销毁的应用
+    private static void test3(AnnotationConfigApplicationContext context) {
+        context.registerShutdownHook();
+//        context.close();
     }
 
 }
