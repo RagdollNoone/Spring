@@ -1,17 +1,6 @@
 package com;
 
-import com.component.AdminUser;
-import com.component.StringToAdminUserConverter;
-import com.component.StringToAdminUserPropertyEditor;
-import org.springframework.beans.factory.config.CustomEditorConfigurer;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ConversionServiceFactoryBean;
-
-import java.beans.PropertyEditor;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 @ComponentScan("com")
 public class AppConfig {

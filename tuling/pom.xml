@@ -7,32 +7,13 @@
         <groupId>ragdollnoone</groupId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
+    <modelVersion>4.0.0</modelVersion>
     <artifactId>tuling</artifactId>
     <packaging>pom</packaging>
+
     <modules>
-        <module>spring-lesson-1</module>
-        <module>jvm-lesson-1</module>
-        <module>spring-lesson-3</module>
-        <module>spring-lesson-4</module>
-        <module>spring-lesson-5</module>
-        <module>spring-lesson-6</module>
+        <module>jvm</module>
+        <module>spring-core</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>tuling</groupId>
-                <artifactId>spring-lesson-1</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
 </project>
