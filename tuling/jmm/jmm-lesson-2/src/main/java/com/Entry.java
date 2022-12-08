@@ -1,6 +1,6 @@
 package com;
 
-public class Entry<K, V> implements Map.Entry<K, V> {
+public class Entry<K, V> {
     private K k;
     private V v;
     private int hash;
@@ -13,12 +13,10 @@ public class Entry<K, V> implements Map.Entry<K, V> {
         this.next = next;
     }
 
-    @Override
     public K getKey() {
         return k;
     }
 
-    @Override
     public V getValue() {
         return v;
     }
