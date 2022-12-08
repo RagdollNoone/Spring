@@ -1,7 +1,7 @@
 package com;
 
 public class HashMap<K, V> implements Map<K, V> {
-    private com.Entry[] table = null;
+    private com.Entry<K, V>[] table = null;
     private int size = 0;
 
     public HashMap() {
@@ -11,15 +11,15 @@ public class HashMap<K, V> implements Map<K, V> {
     @Override
     public V put(K k, V v) {
         int index = hash(k);
-        com.Entry entry = table[index];
+        com.Entry<K, V> entry = table[index];
 
         if (null == entry) {
-            table[index] = new com.Entry(k, v, index, null);
+            table[index] = new com.Entry<>(k, v, index, null);
         } else {
-            table[index] = new com.Entry(k, v, index, entry);
+            table[index] = new com.Entry<>(k, v, index, entry);
         }
 
-        return (V) table[index].getValue();
+        return table[index].getValue();
     }
 
     @Override
