@@ -48,5 +48,7 @@ public class VisibilityTest {
 //                // do nothing
 //            }
         }
+
+        System.out.println(Thread.currentThread().getName() + "跳出循环: count=" + count);
     }
 }
