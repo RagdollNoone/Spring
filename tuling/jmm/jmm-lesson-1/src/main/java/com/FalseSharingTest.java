@@ -1,5 +1,8 @@
 package com;
 
+/*
+ * 伪共享
+ */
 public class FalseSharingTest {
     public static void main(String[] args) throws Exception {
         Point point = new Point();
@@ -28,6 +31,7 @@ public class FalseSharingTest {
         System.out.println(System.currentTimeMillis() - start);
     }
 
+    // 去掉volatile后性能提升
     static class Point {
         private volatile long x;
         private long p1, p2, p3, p4, p5, p6, p7; // 字节填充后 性能提升
