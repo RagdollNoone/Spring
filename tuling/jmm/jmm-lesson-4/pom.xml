@@ -9,6 +9,6 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>jmm-lesson-2</artifactId>
+    <artifactId>jmm-lesson-3</artifactId>
 
 </project>
