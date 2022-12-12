@@ -14,7 +14,8 @@
 
     <modules>
         <module>jmm-lesson-1</module>
-        <module>jmm-lesson-2</module>
         <module>jmm-lesson-3</module>
+        <module>jmm-lesson-4</module>
+        <module>jmm-lesson-5</module>
     </modules>
 </project>
