@@ -3,8 +3,8 @@ package com;
 import java.util.concurrent.locks.LockSupport;
 
 public class VisibilityTest {
-    private boolean flag = true;
-    private int count = 0;
+    private boolean flag = true; // volatile
+    private int count = 0; // Integer
 
     public static void main(String[] args) throws Exception {
         VisibilityTest test = new VisibilityTest();
@@ -16,8 +16,6 @@ public class VisibilityTest {
 
         Thread threadB = new Thread(() -> test.refresh(), "Thread B");
         threadB.start();
-
-
     }
 
     public void refresh() {
