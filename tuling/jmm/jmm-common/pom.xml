@@ -9,12 +9,5 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>jmm-lesson-6</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>ragdollnoone</groupId>
-            <artifactId>jmm-common</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>jmm-common</artifactId>
 </project>

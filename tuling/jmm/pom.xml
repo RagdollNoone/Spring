@@ -20,5 +20,16 @@
         <module>jmm-lesson-6</module>
         <module>jmm-lesson-7</module>
         <module>jmm-lesson-8</module>
+        <module>jmm-common</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>ragdollnoone</groupId>
+                <artifactId>jmm-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
