@@ -4,6 +4,10 @@ public class WaitNotifyTest {
     private static final Object lock = new Object();
     private static volatile boolean flag = true;
 
+    /*
+     * notify不能指定唤醒那个线程 多半是notifyAll
+     * park, unpark能指定唤醒的线程
+     */
     public static void main(String[] args) {
         new Thread(new Runnable() {
             @Override
