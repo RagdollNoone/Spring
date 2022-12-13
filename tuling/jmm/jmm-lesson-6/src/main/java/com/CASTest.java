@@ -1,6 +1,12 @@
 package com;
 import sun.misc.Unsafe;
 
+/*
+ * CAS缺陷
+ * 长时间自旋不成功 给CPU带来大量的开销
+ * 只能保证一个共享变量的原子操作
+ * ABA问题
+ */
 public class CASTest {
     public static void main(String[] args) {
         Entity entity = new Entity();
