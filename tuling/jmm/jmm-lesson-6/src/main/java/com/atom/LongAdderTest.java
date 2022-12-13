@@ -1,4 +1,4 @@
-package com;
+package com.atom;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicLong;
