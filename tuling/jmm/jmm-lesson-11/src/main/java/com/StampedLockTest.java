@@ -40,7 +40,7 @@ public class StampedLockTest {
         // 计算当前坐标到原点的距离
         public double distanceFromOrigin() {
             // 获得一个乐观读锁
-            long stamp = stampedLock.tryOptimisticRead();
+            long stamp = stampedLock.tryOptimisticRead(); // 有乐观锁的概念 并不是一定要阻塞
 
             double currentX = x;
             System.out.println("第1次读, x:" + x + ", y:" + y + ", currentX:" + currentX);
