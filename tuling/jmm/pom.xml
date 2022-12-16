@@ -23,6 +23,7 @@
         <module>jmm-lesson-9</module>
         <module>jmm-lesson-10</module>
         <module>jmm-lesson-11</module>
+        <module>jmm-lesson-12</module>
     </modules>
 
     <dependencyManagement>
