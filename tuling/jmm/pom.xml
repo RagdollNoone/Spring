@@ -25,6 +25,8 @@
         <module>jmm-lesson-11</module>
         <module>jmm-lesson-12</module>
         <module>jmm-lesson-13</module>
+        <module>jmm-lesson-14</module>
+        <module>jmm-lesson-15</module>
     </modules>
 
     <dependencyManagement>
