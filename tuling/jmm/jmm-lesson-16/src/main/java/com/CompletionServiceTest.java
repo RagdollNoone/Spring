@@ -26,7 +26,7 @@ public class CompletionServiceTest {
     }
 
     private static Integer getPriceByS1() throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(1000);
+        TimeUnit.MILLISECONDS.sleep(3000);
         System.out.println("电商S1询价信息1200");
         return 1200;
     }
@@ -38,7 +38,7 @@ public class CompletionServiceTest {
     }
 
     private static Integer getPriceByS3()  throws InterruptedException {
-        TimeUnit.MILLISECONDS.sleep(3000);
+        TimeUnit.MILLISECONDS.sleep(1000);
         System.out.println("电商S3询价信息800");
         return 800;
     }
