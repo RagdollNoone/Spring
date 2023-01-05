@@ -30,11 +30,10 @@ public class EchoClient {
         try {
             /*客户端启动必备，和服务器的不同点*/
             Bootstrap b = new Bootstrap();
+
             b.group(group)
                     .channel(NioSocketChannel.class)/*指定使用NIO的通信模式*/
-                    /*指定服务器的IP地址和端口，和服务器的不同点*/
-                    .remoteAddress(new InetSocketAddress(host,port))
-                    /*和服务器的不同点*/
+                    .remoteAddress(new InetSocketAddress(host,port)) /*指定服务器的IP地址和端口，和服务器的不同点*/
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
