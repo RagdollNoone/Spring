@@ -17,5 +17,6 @@
         <module>spring-core</module>
         <module>jmm</module>
         <module>web-io</module>
+        <module>sharding-sphere</module>
     </modules>
 </project>
