@@ -15,7 +15,7 @@ public class MyPreciseTableShardingAlgorithm implements PreciseShardingAlgorithm
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Long> preciseShardingValue) {
         System.out.println("collection: " + collection);
-        System.out.println("preciseShardingValue: " + preciseShardingValue);
+        System.out.println("MyPreciseTableShardingAlgorithm preciseShardingValue: " + preciseShardingValue);
 
         BigInteger shardingValue = BigInteger.valueOf(preciseShardingValue.getValue());
         BigInteger res = (shardingValue.mod(new BigInteger("2"))).add(new BigInteger("1"));

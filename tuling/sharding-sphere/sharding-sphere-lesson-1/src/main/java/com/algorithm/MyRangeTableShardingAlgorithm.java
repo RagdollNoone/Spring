@@ -15,7 +15,7 @@ public class MyRangeTableShardingAlgorithm implements RangeShardingAlgorithm<Lon
     @Override
     public Collection<String> doSharding(Collection<String> collection, RangeShardingValue<Long> rangeShardingValue) {
         System.out.println("collection: " + collection);
-        System.out.println("rangeShardingValue: " + rangeShardingValue);
+        System.out.println("MyRangeTableShardingAlgorithm rangeShardingValue: " + rangeShardingValue);
 
         // 获取范围的方式
         Long lowerEndpoint = rangeShardingValue.getValueRange().lowerEndpoint();//2000

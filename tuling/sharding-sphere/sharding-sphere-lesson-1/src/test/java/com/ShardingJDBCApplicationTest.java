@@ -54,8 +54,10 @@ public class ShardingJDBCApplicationTest {
 
     @Test
     public void multiDatabaseMultiTableRangeQueryCourseTest() {
+
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
-        wrapper.between("id",1615594499545833473L,1615594500963508228L);
+//        wrapper.between("id",1615594499545833473L,1615594500963508228L);  // range查询
+        wrapper.in("id",1615594499545833473L, 1615594500963508228L); // in查询
         List<Course> courses = mapper.selectList(wrapper);
         courses.sort(new Comparator<Course>() {
             @Override

@@ -10,11 +10,11 @@ public class MyPreciseDSShardingAlgorithm implements PreciseShardingAlgorithm<Lo
     @Override
     public String doSharding(Collection<String> collection, PreciseShardingValue<Long> preciseShardingValue) {
         System.out.println("collection: " + collection);
-        System.out.println("preciseShardingValue: " + preciseShardingValue);
+        System.out.println("MyPreciseDSShardingAlgorithm preciseShardingValue: " + preciseShardingValue);
 
         BigInteger shardingValue = BigInteger.valueOf(preciseShardingValue.getValue());
         BigInteger res = (shardingValue.mod(new BigInteger("2"))).add(new BigInteger("1"));
-        String key =  preciseShardingValue.getLogicTableName() + "_" + res;
+        String key =  "m" + res;
 
         if(collection.contains(key)){
             return key;
