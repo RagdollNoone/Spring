@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
+import java.util.Comparator;
 import java.util.List;
 
 @SpringBootTest
@@ -55,6 +56,13 @@ public class ShardingJDBCApplicationTest {
         QueryWrapper<Course> wrapper = new QueryWrapper<>();
         wrapper.between("id",1615594499545833473L,1615594500963508228L);
         List<Course> courses = mapper.selectList(wrapper);
+        courses.sort(new Comparator<Course>() {
+            @Override
+            public int compare(Course o1, Course o2) {
+                return (int)(o1.getId() - o2.getId());
+            }
+        });
+
         courses.forEach(course -> System.out.println(course));
     }
 }
