@@ -1,8 +1,10 @@
 package com.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 
 public class Course {
+    @TableId
     private Long id;
 
     @TableField("course_name")

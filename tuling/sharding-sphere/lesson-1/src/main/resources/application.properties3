@@ -18,12 +18,11 @@ spring.shardingsphere.sharding.tables.course.key-generator.column=id
 spring.shardingsphere.sharding.tables.course.key-generator.type=SNOWFLAKE
 spring.shardingsphere.sharding.tables.course.key-generator.props.worker.id=1
 
-spring.shardingsphere.sharding.tables.course.database-strategy.standard.sharding-column=id
-spring.shardingsphere.sharding.tables.course.database-strategy.standard.range-algorithm-class-name=com.algorithm.MyRangeDSShardingAlgorithm
-spring.shardingsphere.sharding.tables.course.database-strategy.standard.precise-algorithm-class-name=com.algorithm.MyPreciseDSShardingAlgorithm
+spring.shardingsphere.sharding.tables.course.database-strategy.inline.sharding-column=id
+spring.shardingsphere.sharding.tables.course.database-strategy.inline.algorithm-expression=m$->{id%2+1}
 
-spring.shardingsphere.sharding.tables.course.table-strategy.standard.range-algorithm-class-name=com.algorithm.MyRangeTableShardingAlgorithm
-spring.shardingsphere.sharding.tables.course.table-strategy.standard.precise-algorithm-class-name=com.algorithm.MyPreciseTableShardingAlgorithm
+spring.shardingsphere.sharding.tables.course.table-strategy.inline.sharding-column=id
+spring.shardingsphere.sharding.tables.course.table-strategy.inline.algorithm-expression=course_$->{((id%4)+2).intdiv(2)}
 
 spring.shardingsphere.props.sql.show=true
 
