@@ -1,7 +1,7 @@
 package com.annotation;
 
 
-import com.bean.WebServiceAutoConfiguration;
+import com.bean.MyImportSelect;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -15,6 +15,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Configuration
 @ComponentScan
-@Import(WebServiceAutoConfiguration.class)
+@Import(MyImportSelect.class)
 public @interface MySpringBootApplication {
 }

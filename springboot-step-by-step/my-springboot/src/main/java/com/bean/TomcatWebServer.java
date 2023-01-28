@@ -7,13 +7,22 @@ import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.core.StandardEngine;
 import org.apache.catalina.core.StandardHost;
 import org.apache.catalina.startup.Tomcat;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-public class TomcatWebServer implements WebServer {
+public class TomcatWebServer implements WebServer, ApplicationContextAware {
+
     @Override
     public void start() {
         System.out.println("启动Tomcat");
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        startTomcat((WebApplicationContext)applicationContext);
     }
 
     public static void startTomcat(WebApplicationContext applicationContext){
