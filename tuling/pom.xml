@@ -18,5 +18,6 @@
         <module>jmm</module>
         <module>web-io</module>
         <module>sharding-sphere</module>
+        <module>nacos</module>
     </modules>
 </project>
