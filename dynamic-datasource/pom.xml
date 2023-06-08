@@ -15,6 +15,7 @@
     <modules>
         <module>spring-level</module>
         <module>mybatis-level</module>
+        <module>3rd-level</module>
     </modules>
 
     <dependencies>
