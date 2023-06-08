@@ -1,5 +1,6 @@
 package com.service.impl;
 
+import com.DataSourceRoute;
 import com.entity.Friend;
 import com.mapper.FriendMapper;
 import com.service.FriendService;
@@ -15,11 +16,13 @@ public class FriendImplService implements FriendService {
 
     @Override
     public List<Friend> list() {
+        DataSourceRoute.setDataSource("R");
         return friendMapper.list();
     }
 
     @Override
     public void save(Friend friend) {
+        DataSourceRoute.setDataSource("W");
         friendMapper.save(friend);
     }
 }
