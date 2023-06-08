@@ -19,6 +19,7 @@
         <module>ehcache</module>
         <module>tuling</module>
         <module>springboot-step-by-step</module>
+        <module>dynamic-datasource</module>
     </modules>
 
     <properties>
@@ -28,6 +29,10 @@
         <slf4j-api.version>1.7.25</slf4j-api.version>
         <lombok.version>1.18.8</lombok.version>
         <fastjson.version>1.2.62</fastjson.version>
+
+        <!-- nacos 项目需要 2.3.12.RELEASE -->
+        <!-- dynamic-datasource 项目需要 2.6.2 -->
+        <spring-boot-starter-parent.version>2.3.12.RELEASE</spring-boot-starter-parent.version>
     </properties>
 
     <dependencyManagement>
@@ -48,6 +53,14 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-parent</artifactId>
+                <version>${spring-boot-starter-parent.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
