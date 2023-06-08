@@ -13,6 +13,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>read-write-separation</module>
+        <module>spring-level</module>
     </modules>
 </project>
