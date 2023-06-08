@@ -1,0 +1,24 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    read-datasource:
+      url: jdbc:mysql://192.168.20.129:3306/read_datasource?serverTimezone=UTC
+      username: dendy
+      password: Zsh@727596853
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    write-datasource:
+      url: jdbc:mysql://192.168.20.129:3306/write_datasource?serverTimezone=UTC
+      username: dendy
+      password: Zsh@727596853
+      initial-size: 1
+      min-idle: 1
+      max-active: 20
+      test-on-borrow: true
+      driver-class-name: com.mysql.cj.jdbc.Driver
