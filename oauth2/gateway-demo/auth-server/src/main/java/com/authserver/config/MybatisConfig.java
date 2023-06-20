@@ -4,7 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@MapperScan("com.mapper")
+@MapperScan("com.authserver.mapper")
 public class MybatisConfig {
 //    @ConfigurationProperties("spring.datasource")
 //    @Bean
