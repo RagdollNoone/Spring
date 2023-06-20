@@ -11,6 +11,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenStore;
 
 @Configuration
 @EnableAuthorizationServer
@@ -26,20 +27,23 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private TokenStore tokenStore;
+
     // 密码模式引入
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.authenticationManager(authenticationManager)
         .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST) // 支持GET, POST请求
         .reuseRefreshTokens(false) // refresh_token是否重复使用
-        .userDetailsService(userService); // 刷新令牌授权包含对用户信息的检查
+        .userDetailsService(userService) // 刷新令牌授权包含对用户信息的检查
+        .tokenStore(tokenStore); // 指定token存储到redis
     }
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         //允许表单认证
         security.allowFormAuthenticationForClients();
-
     }
 
     @Override
