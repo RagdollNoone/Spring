@@ -14,6 +14,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
+// 验证token是否过期 是否有对应资源的权限
 @Order(1)
 @Component
 public class AuthorizationFilter implements GlobalFilter, InitializingBean {
@@ -25,7 +26,6 @@ public class AuthorizationFilter implements GlobalFilter, InitializingBean {
         shouldSkipUrl.add("/oauth/token");
         shouldSkipUrl.add("/oauth/check_token");
         shouldSkipUrl.add("/user/getCurrentUser");
-
     }
 
     @Override

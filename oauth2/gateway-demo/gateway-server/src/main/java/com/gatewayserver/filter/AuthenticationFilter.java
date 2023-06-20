@@ -19,6 +19,7 @@ import org.springframework.http.*;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+// 验证token是否有效 是不是仿冒的
 @Order(0)
 @Component
 public class AuthenticationFilter implements GlobalFilter, InitializingBean {
@@ -81,7 +82,6 @@ public class AuthenticationFilter implements GlobalFilter, InitializingBean {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
-
         headers.setBasicAuth(MDA.clientId, MDA.clientSecret); // 必须 basicAuth clienId clientSecret
 
         MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
