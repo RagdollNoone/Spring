@@ -1,6 +1,6 @@
-package com.service;
+package com.authserver.service;
 
-import com.bean.SysPermission;
+import com.authserver.bean.SysPermission;
 import java.util.List;
 
 public interface PermissionService  {

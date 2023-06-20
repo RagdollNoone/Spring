@@ -1,4 +1,4 @@
-package com.config;
+package com.authserver.config;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Configuration;

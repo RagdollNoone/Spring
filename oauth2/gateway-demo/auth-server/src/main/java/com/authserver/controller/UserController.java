@@ -1,4 +1,4 @@
-package com.controller;
+package com.authserver.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;

@@ -1,6 +1,6 @@
-package com.mapper;
+package com.authserver.mapper;
 
-import com.bean.SysUser;
+import com.authserver.bean.SysUser;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 

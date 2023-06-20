@@ -1,8 +1,8 @@
-package com.service.impl;
+package com.authserver.service.impl;
 
-import com.bean.SysPermission;
-import com.mapper.PermissionMapper;
-import com.service.PermissionService;
+import com.authserver.bean.SysPermission;
+import com.authserver.mapper.PermissionMapper;
+import com.authserver.service.PermissionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

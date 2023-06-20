@@ -1,4 +1,4 @@
-package com.bean;
+package com.authserver.bean;
 
 import lombok.Data;
 import java.io.Serializable;

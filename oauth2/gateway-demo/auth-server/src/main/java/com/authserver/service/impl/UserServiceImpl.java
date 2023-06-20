@@ -1,10 +1,10 @@
-package com.service.impl;
+package com.authserver.service.impl;
 
-import com.bean.SysPermission;
-import com.bean.SysUser;
-import com.mapper.PermissionMapper;
-import com.mapper.UserMapper;
-import com.service.UserService;
+import com.authserver.bean.SysPermission;
+import com.authserver.bean.SysUser;
+import com.authserver.mapper.PermissionMapper;
+import com.authserver.mapper.UserMapper;
+import com.authserver.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
