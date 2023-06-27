@@ -34,7 +34,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        //password模式
+        // password模式
         // http://localhost:8888/oauth/token?username=fox&password=123456&grant_type=password&client_id=gateway-server&client_secret=123123&scope=read
         clients.withClientDetails(clientDetails());
     }
