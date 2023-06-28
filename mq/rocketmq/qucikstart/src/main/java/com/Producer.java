@@ -18,9 +18,9 @@ public class Producer {
         producer.setNamesrvAddr("192.168.20.129:9876");
         producer.start();
 
-//        SendMsgStrategy sendMsgStrategy = new SynSendMsg();
+        SendMsgStrategy sendMsgStrategy = new SynSendMsg();
 //        SendMsgStrategy sendMsgStrategy = new AsyncSendMsg();
-        SendMsgStrategy sendMsgStrategy = new OnewaySendMsg();
+//        SendMsgStrategy sendMsgStrategy = new OnewaySendMsg();
         sendMsgStrategy.sendMsg(producer);
 
         producer.shutdown();

@@ -15,7 +15,10 @@ public class Consumer {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("default_consumer");
         consumer.setNamesrvAddr("192.168.20.129:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
-        consumer.subscribe("MyTopic", "AsyncTag"); // TODO: 没有起到分类作用
+        // 生产者和消费者拥有相同的topic 就会触发投递
+        // tag和发送端不一致时 不会触发监听回调
+        // 全局消费者消费到指定的tag不做保证
+        consumer.subscribe("MyTopic", "AsyncTag");
 
         // 多线程消费
         consumer.registerMessageListener(new MessageListenerConcurrently() {
