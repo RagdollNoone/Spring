@@ -9,7 +9,8 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 public class SynSendMsg implements SendMsgStrategy {
     @Override
     public void sendMsg(DefaultMQProducer producer) throws InterruptedException {
-        for (int i = 0; i < 2; i++) {
+        int messageCount = 2;
+        for (int i = 0; i < messageCount; i++) {
             try {
                 // 创建消息
                 Message msg = new Message("MyTopic" /* Topic */,

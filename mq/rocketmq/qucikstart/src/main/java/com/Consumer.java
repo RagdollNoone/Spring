@@ -15,7 +15,7 @@ public class Consumer {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("default_consumer");
         consumer.setNamesrvAddr("192.168.20.129:9876");
         consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
-        consumer.subscribe("MyTopic", "SynTag");
+        consumer.subscribe("MyTopic", "AsyncTag"); // TODO: 没有起到分类作用
 
         // 多线程消费
         consumer.registerMessageListener(new MessageListenerConcurrently() {

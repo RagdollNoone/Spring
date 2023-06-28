@@ -1,6 +1,7 @@
 package com;
 
 import com.strategy.AsyncSendMsg;
+import com.strategy.OnewaySendMsg;
 import com.strategy.SendMsgStrategy;
 import com.strategy.SynSendMsg;
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -19,8 +20,8 @@ public class Producer {
         producer.start();
 
 //        SendMsgStrategy sendMsgStrategy = new SynSendMsg();
-        SendMsgStrategy sendMsgStrategy = new AsyncSendMsg();
-//        SendMsgStrategy sendMsgStrategy = new OnewaySendMsg();
+//        SendMsgStrategy sendMsgStrategy = new AsyncSendMsg();
+        SendMsgStrategy sendMsgStrategy = new OnewaySendMsg();
         sendMsgStrategy.sendMsg(producer);
 
         producer.shutdown();
