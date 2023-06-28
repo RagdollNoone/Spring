@@ -7,12 +7,13 @@ import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.remoting.common.RemotingHelper;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.TimeUnit;
 
 // 异步发送
 public class AsyncSendMsg implements SendMsgStrategy {
     @Override
     public void sendMsg(DefaultMQProducer producer) throws InterruptedException {
-//        producer.setRetryTimesWhenSendAsyncFailed(3);
+        producer.setRetryTimesWhenSendAsyncFailed(3);
 
         int messageCount = 5;
         final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
@@ -40,6 +41,7 @@ public class AsyncSendMsg implements SendMsgStrategy {
             e.printStackTrace();
             Thread.sleep(1000);
         }
-        
+
+        countDownLatch.await(10, TimeUnit.SECONDS);
     }
 }
