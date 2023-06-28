@@ -8,7 +8,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
 // 同步发送
 public class SynSendMsg implements SendMsgStrategy {
     @Override
-    public void sendMsg(DefaultMQProducer producer) throws InterruptedException {
+    public void sendMsg(DefaultMQProducer producer) {
         int messageCount = 2;
         for (int i = 0; i < messageCount; i++) {
             try {
@@ -22,7 +22,6 @@ public class SynSendMsg implements SendMsgStrategy {
                 System.out.printf("%s%n", sendResult); // 打印日志
             } catch (Exception e) {
                 e.printStackTrace();
-                Thread.sleep(1000);
             }
         }
     }

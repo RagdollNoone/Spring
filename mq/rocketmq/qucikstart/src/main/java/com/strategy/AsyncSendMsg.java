@@ -39,7 +39,6 @@ public class AsyncSendMsg implements SendMsgStrategy {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            Thread.sleep(1000);
         }
 
         countDownLatch.await(10, TimeUnit.SECONDS);
