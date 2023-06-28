@@ -1,5 +1,6 @@
 package com;
 
+import com.strategy.AsyncSendMsg;
 import com.strategy.SendMsgStrategy;
 import com.strategy.SynSendMsg;
 import org.apache.rocketmq.client.exception.MQClientException;
@@ -14,10 +15,11 @@ public class Producer {
     public static void main(String[] args) throws MQClientException, InterruptedException {
         DefaultMQProducer producer = new DefaultMQProducer("default_producer");
         producer.setNamesrvAddr("192.168.20.129:9876");
+//        producer.setClientIP("192.168.20.1");
         producer.start();
 
-        SendMsgStrategy sendMsgStrategy = new SynSendMsg();
-//        SendMsgStrategy sendMsgStrategy = new AsyncSendMsg();
+//        SendMsgStrategy sendMsgStrategy = new SynSendMsg();
+        SendMsgStrategy sendMsgStrategy = new AsyncSendMsg();
 //        SendMsgStrategy sendMsgStrategy = new OnewaySendMsg();
         sendMsgStrategy.sendMsg(producer);
 
