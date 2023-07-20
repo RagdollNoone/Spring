@@ -1,4 +1,4 @@
-package com.lesson4;
+package com.lesson3;
 
 public class ScheduledThreadPoolTest {
     public static void main(String[] args) {

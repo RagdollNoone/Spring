@@ -1,4 +1,4 @@
-package com.lesson3;
+package com.hashmap;
 
 public interface Map<K, V> {
     V put(K k, V v);

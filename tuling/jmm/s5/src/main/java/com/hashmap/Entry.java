@@ -1,4 +1,4 @@
-package com.lesson3;
+package com.hashmap;
 
 public class Entry<K, V> {
     private K k;

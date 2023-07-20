@@ -1,4 +1,4 @@
-package com.lesson3;
+package com.hashmap;
 
 public class HashMap<K, V> implements Map<K, V> {
     private Entry<K, V>[] table = null;

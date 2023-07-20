@@ -1,4 +1,4 @@
-package com.lesson4;
+package com.lesson3;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,12 @@ import java.util.concurrent.TimeUnit;
 /*
  * thread之间有大量的线程切换消耗
  * 所以引入线程池
+ * 并不是线程越多越好
  */
 public class ThreadAndThreadPoolCompareTest {
     public static void main(String[] args) throws Exception {
-        threadPoolTest();
-        threadTest();
+        threadPoolTest(); // 快 线程少 上下文切换少
+        threadTest(); // 慢 线程多 上下文切换多
     }
 
     private static void threadTest() throws Exception {
@@ -54,6 +55,4 @@ public class ThreadAndThreadPoolCompareTest {
         System.out.println("threadPoolTest的时间：" + (System.currentTimeMillis() - start));
         System.out.println("threadPoolTest的list大小：" + list.size());
     }
-
-
 }

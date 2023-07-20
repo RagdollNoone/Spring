@@ -1,4 +1,4 @@
-package com.lesson3;
+package com.hashmap;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,21 +9,29 @@ public class FailFastTest {
         users.add(new User("Michael", 31));
         users.add(new User("Dendy", 32));
 
-        System.out.println(users);
+        printUsers(users);
 
         // fast fail example
         Iterator<User> iterator = users.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().getName().equals("Michael")) {
-                users.add(new User("Park", 30)); // 能触发ConcurrentModifyException
-                users.remove(0); // 不能触发ConcurrentModifyException
+                users.add(new User("Park", 30)); // 能触发 ConcurrentModifyException
+                users.remove(0); // 不能触发 ConcurrentModifyException
             }
         }
 
         // correct way
         users.removeIf(user -> user.name.equals("Michael"));
 
-        System.out.println(users);
+        printUsers(users);
+    }
+
+    private static void printUsers(ArrayList<User> users) {
+        for (User user : users) {
+            System.out.println(user);
+        }
+
+        System.out.println();
     }
 
     private static class User{
@@ -41,6 +49,14 @@ public class FailFastTest {
 
         public int getAge() {
             return age;
+        }
+
+        @Override
+        public String toString() {
+            return "User{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
         }
     }
 }
