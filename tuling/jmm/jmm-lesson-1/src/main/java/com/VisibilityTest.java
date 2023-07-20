@@ -32,6 +32,7 @@ public class VisibilityTest {
     }
 
     public void refresh() {
+        // 线程B对flag的写操作会happens-before 线程A对flag的读操作
         flag = false;
         System.out.println(Thread.currentThread().getName() + " modify flag: " + flag);
     }
