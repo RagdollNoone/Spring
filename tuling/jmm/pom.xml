@@ -13,21 +13,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>jmm-lesson-1</module>
-        <module>jmm-lesson-3</module>
-        <module>jmm-lesson-4</module>
-        <module>jmm-lesson-5</module>
-        <module>jmm-lesson-6</module>
-        <module>jmm-lesson-7</module>
         <module>jmm-common</module>
-        <module>jmm-lesson-9</module>
-        <module>jmm-lesson-10</module>
-        <module>jmm-lesson-11</module>
-        <module>jmm-lesson-12</module>
-        <module>jmm-lesson-13</module>
-        <module>jmm-lesson-14</module>
-        <module>jmm-lesson-15</module>
-        <module>jmm-lesson-16</module>
+        <module>s5</module>
         <module>jmm6-lesson-1</module>
     </modules>
 
