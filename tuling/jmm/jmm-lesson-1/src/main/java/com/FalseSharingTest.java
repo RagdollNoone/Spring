@@ -33,6 +33,8 @@ public class FalseSharingTest {
 
     // 去掉volatile后性能提升
     static class Point {
+        // -XX:-RestrictContended
+        // @Contended
         private volatile long x;
         private long p1, p2, p3, p4, p5, p6, p7; // 字节填充后 性能提升
         private volatile long y;
