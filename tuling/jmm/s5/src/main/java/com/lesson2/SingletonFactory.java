@@ -1,4 +1,4 @@
-package com.lesson1;
+package com.lesson2;
 
 public class SingletonFactory {
     private volatile static SingletonFactory instance; // 一定要用volatile修饰

@@ -1,4 +1,4 @@
-package com.lesson1;
+package com.lesson2;
 
 public class FinalFieldExample {
     private final int x;

@@ -1,4 +1,4 @@
-package com.lesson1;
+package com.lesson2;
 
 /*
  * 伪共享
