@@ -29,7 +29,9 @@ public class ThreadStopErrorWayTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        thread.stop();
+
+//        thread.stop(); // 不会执行end的输出 会释放锁
+        thread.suspend(); // 不会执行end的输出 不会释放锁
 
         new Thread(new Runnable() {
             @Override
