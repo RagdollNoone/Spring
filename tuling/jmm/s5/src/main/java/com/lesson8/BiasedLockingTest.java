@@ -1,4 +1,4 @@
-package com.lesson7;
+package com.lesson8;
 
 import org.openjdk.jol.info.ClassLayout;
 

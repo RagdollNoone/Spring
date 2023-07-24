@@ -1,4 +1,4 @@
-package com.lesson7;
+package com.lesson8;
 
 public class LockEliminationTest {
     /**
