@@ -14,7 +14,7 @@ public class CompletionServiceTest {
         //将询价结果异步保存到数据库
         for (int i = 0; i < 3; i++) {
             //从阻塞队列获取futureTask
-            Integer r = cs.take().get();
+            Integer r = cs.take().get(); // 不断的阻塞 直到结果队列当中有数据继续执行
             executor.execute(() -> save(r));
         }
         
