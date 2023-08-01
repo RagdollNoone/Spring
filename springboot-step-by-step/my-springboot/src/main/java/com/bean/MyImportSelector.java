@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
-public class MyImportSelect implements DeferredImportSelector {
+public class MyImportSelector implements DeferredImportSelector {
     @Override
     public String[] selectImports(AnnotationMetadata importingClassMetadata) {
         ServiceLoader<AutoConfiguration> serviceLoader = ServiceLoader.load(AutoConfiguration.class);
