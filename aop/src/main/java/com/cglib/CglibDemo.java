@@ -23,12 +23,12 @@ public class CglibDemo {
                     return null;
                 }
 
-
                 return method.invoke(target, objects);
             }
         });
 
         UserServiceImpl userServiceImpl = (UserServiceImpl) enhancer.create();
         userServiceImpl.test();
+        userServiceImpl.addUser();
     }
 }
