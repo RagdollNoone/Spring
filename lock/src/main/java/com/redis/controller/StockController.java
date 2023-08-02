@@ -1,7 +1,7 @@
 package com.redis.controller;
 
 import com.redis.component.RedisLockKeepAliveTask;
-import com.redis.component.RedisLockWatchDogThreadPool;
+import com.redis.component.RedisLockWatchDog;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +28,8 @@ public class StockController {
 
     @RequestMapping("/deductStock")
     public String deductStock() {
-        String result = redisDeductStock();
-//        String result = redissonDeductStock();
+//        String result = redisDeductStock();
+        String result = redissonDeductStock();
         System.out.println(result);
 
         return result;
@@ -45,14 +45,14 @@ public class StockController {
         }
 
         // 添加锁续命任务
-        RedisLockWatchDogThreadPool.beginWatch(new RedisLockKeepAliveTask(lockName, clientId, expireTime, stringRedisTemplate), expireTime);
+        RedisLockWatchDog.beginWatch(new RedisLockKeepAliveTask(lockName, clientId, expireTime, stringRedisTemplate), expireTime);
 
         try {
             doDeductStock();
         } catch (Throwable t) {
             // do nothing
         } finally {
-            RedisLockWatchDogThreadPool.clear(); // 清空threadLocal变量
+            RedisLockWatchDog.clear(); // 清空threadLocal变量
 
             if (clientId.equals(stringRedisTemplate.opsForValue().get(lockName))) {
                 stringRedisTemplate.delete(lockName);
@@ -80,7 +80,7 @@ public class StockController {
     private void doDeductStock() throws InterruptedException {
         int stock = Integer.parseInt(stringRedisTemplate.opsForValue().get("stock"));
         if (stock > 0) {
-            Thread.sleep(11000);
+            Thread.sleep(20000);
             int realStock = stock - 1;
             stringRedisTemplate.opsForValue().set("stock", realStock + "");
             System.out.println("扣减成功，剩余库存:" + realStock);

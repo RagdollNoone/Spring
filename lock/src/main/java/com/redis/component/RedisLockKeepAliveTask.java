@@ -24,7 +24,7 @@ public class RedisLockKeepAliveTask implements Runnable {
             Boolean result = stringRedisTemplate.opsForValue().setIfAbsent(lockName, clientId, expireTime, TimeUnit.SECONDS); // 锁续命
         } else {
             System.out.println("锁释放");
-            RedisLockWatchDogThreadPool.endWatch();
+            RedisLockWatchDog.endWatch();
         }
     }
 }

@@ -2,7 +2,7 @@ package com.redis.component;
 
 import java.util.concurrent.*;
 
-public class RedisLockWatchDogThreadPool {
+public class RedisLockWatchDog {
     private static ThreadLocal<ScheduledThreadPoolExecutor> threadLocalExecutor = new ThreadLocal<>();
 
     public static void beginWatch(Runnable task, long expireTime) {
