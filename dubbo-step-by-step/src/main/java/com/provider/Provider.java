@@ -3,6 +3,8 @@ package com.provider;
 import com.api.HelloService;
 import com.framework.URL;
 import com.framework.protocol.http.HttpServer;
+import com.framework.proxy.Protocol;
+import com.framework.proxy.ProtocolFactory;
 import com.framework.register.LocalRegister;
 import com.framework.register.RemoteMapRegister;
 import com.provider.impl.HelloServiceImpl;
@@ -11,19 +13,26 @@ import java.util.List;
 
 public class Provider {
     public static void main(String[] args) {
-        test1();
-//        rwTest();
-    }
-
-    public static void test1() {
-        // 没有注册到注册中心 数据都在本地
         URL url = new URL("localhost", 8080);
         RemoteMapRegister.register(HelloService.class.getName(), url);
         LocalRegister.register(HelloService.class.getName(), HelloServiceImpl.class);
 
+        test1();
+//        rwTest();
+    }
+
+    // 没有注册到注册中心 数据都在本地
+    public static void test1(URL url) {
         // 启动http
         HttpServer httpServer = new HttpServer();
         httpServer.start(url.getHostname(), url.getPort());
+    }
+
+    // serverList数据在文件中
+    public static void test3(URL url) {
+        // 启动http
+        Protocol protocol = ProtocolFactory.getProtocol();
+        protocol.start(url);
     }
 
     public static void rwTest() {
