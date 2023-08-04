@@ -2,6 +2,7 @@ package com.framework.register;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
 import com.framework.URL;
 
 import java.io.*;
@@ -60,7 +61,7 @@ public class RemoteMapRegister {
             int size = is.available();
             byte[] bytes = new byte[size];
             is.read(bytes);
-            REGISTER = JSON.parseObject(bytes, REGISTER.getClass());
+            REGISTER = JSONObject.parseObject(new String(bytes), new TypeReference<Map<String, List<URL>>>(){});
         } catch (Throwable t) {
             t.printStackTrace();
         }

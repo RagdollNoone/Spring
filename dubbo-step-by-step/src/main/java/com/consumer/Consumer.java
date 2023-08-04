@@ -8,8 +8,9 @@ import com.framework.proxy.ProxyFactory;
 public class Consumer {
     public static void main(String[] args) {
 //        test();
-        test1();
+//        test1();
 //        test2();
+        test4();
     }
 
     // 原始实现
@@ -45,17 +46,11 @@ public class Consumer {
         System.out.println(result);
     }
 
-    // 添加了mock机制
-    public static void test3() {
-        HelloService helloService = ProxyFactory.getProxy3(HelloService.class);
+    // spi
+    public static void test4() {
+        HelloService helloService = ProxyFactory.getProxy4(HelloService.class);
         String result = helloService.sayHello("dubbo");
         System.out.println(result);
     }
-
-//    public static void temp () {
-//        HelloService helloService = ProxyFactory.getProxy(HelloService.class);
-//        String result = helloService.sayHello("dubbo");
-//        System.out.println(result);
-//    }
 
 }

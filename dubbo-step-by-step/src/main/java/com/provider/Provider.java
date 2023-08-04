@@ -9,7 +9,9 @@ import com.framework.register.LocalRegister;
 import com.framework.register.RemoteMapRegister;
 import com.provider.impl.HelloServiceImpl;
 
+import java.util.Iterator;
 import java.util.List;
+import java.util.ServiceLoader;
 
 public class Provider {
     public static void main(String[] args) {
@@ -17,7 +19,9 @@ public class Provider {
         RemoteMapRegister.register(HelloService.class.getName(), url);
         LocalRegister.register(HelloService.class.getName(), HelloServiceImpl.class);
 
-        test1();
+//        test1(url);
+//        test3(url);
+        test4(url);
 //        rwTest();
     }
 
@@ -33,6 +37,17 @@ public class Provider {
         // 启动http
         Protocol protocol = ProtocolFactory.getProtocol();
         protocol.start(url);
+    }
+
+    // java spi
+    public static void test4(URL url) {
+        // 启动http
+        ServiceLoader<Protocol> serviceLoader = ServiceLoader.load(Protocol.class);
+        Iterator<Protocol> iterator = serviceLoader.iterator();
+        while (iterator.hasNext()) {
+            Protocol protocol = iterator.next();
+            protocol.start(url);
+        }
     }
 
     public static void rwTest() {

@@ -10,7 +10,9 @@ import com.framework.register.RemoteMapRegister;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ServiceLoader;
 
 // 客户端组件
 public class ProxyFactory<T> {
@@ -100,6 +102,36 @@ public class ProxyFactory<T> {
                 } catch (Exception e) {
                     return doMock(invocation); // 添加mock容错机制
                 }
+            }
+        });
+    }
+
+    // java spi
+    @SuppressWarnings("unchecked")
+    public static <T> T getProxy4(final Class<?> interfaceClass) {
+        return (T) Proxy.newProxyInstance(interfaceClass.getClassLoader(), new Class[]{interfaceClass}, new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                Invocation invocation = new Invocation(interfaceClass.getName(), method.getName(), method.getParameterTypes(), args);
+                try {
+                    // 负载均衡
+                    List<URL> urlList = RemoteMapRegister.get(interfaceClass.getName());
+                    URL url = LoadBalance.random(urlList);
+
+                    // java spi
+                    ServiceLoader<Protocol> serviceLoader = ServiceLoader.load(Protocol.class);
+                    Iterator<Protocol> iterator = serviceLoader.iterator();
+                    while (iterator.hasNext()) {
+                        Protocol protocol = iterator.next();
+                        String result = protocol.send(url, invocation);
+                        return result;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+//                    return doMock(invocation); // 添加mock容错机制
+                }
+
+                return null;
             }
         });
     }
