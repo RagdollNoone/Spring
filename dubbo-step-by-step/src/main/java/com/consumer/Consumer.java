@@ -7,14 +7,11 @@ import com.framework.proxy.ProxyFactory;
 
 public class Consumer {
     public static void main(String[] args) {
-
-//        NettyClient nettyClient = new NettyClient();
-//        String result = nettyClient.send("localhost", 8080, invocation);
-//        System.out.println(result);
-
+        test1();
     }
 
     public static void test1() {
+        // 写死构造 没有从注册中心拿数据
         Invocation invocation = new Invocation(
                 HelloService.class.getName(),
                 "sayHello",

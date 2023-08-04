@@ -16,7 +16,7 @@ public class HttpServerHandler {
             String interfaceName = invocation.getInterfaceName();
             Class<?> implClass = LocalRegister.get(interfaceName);
             Method method = implClass.getMethod(invocation.getMethodName(), invocation.getParamTypes());
-            String result = (String) method.invoke(implClass.newInstance(), invocation.getParamTypes());
+            String result = (String) method.invoke(implClass.newInstance(), invocation.getParams());
 
             System.out.println("tomcat: " + result);
             IOUtils.write(result, resp.getOutputStream());
