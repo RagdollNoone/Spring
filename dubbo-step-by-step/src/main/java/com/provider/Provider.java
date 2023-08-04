@@ -7,9 +7,12 @@ import com.framework.register.LocalRegister;
 import com.framework.register.RemoteMapRegister;
 import com.provider.impl.HelloServiceImpl;
 
+import java.util.List;
+
 public class Provider {
     public static void main(String[] args) {
         test1();
+//        rwTest();
     }
 
     public static void test1() {
@@ -23,4 +26,9 @@ public class Provider {
         httpServer.start(url.getHostname(), url.getPort());
     }
 
+    public static void rwTest() {
+        URL url = new URL("localhost", 8080);
+        RemoteMapRegister.register(HelloService.class.getName(), url);
+        List<URL> serverList = RemoteMapRegister.get(HelloService.class.getName());
+    }
 }
