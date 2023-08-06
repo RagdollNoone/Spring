@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import static org.springframework.beans.factory.support.BeanDefinitionBuilder.rootBeanDefinition;
 
+// 注册beanDefinition
 @Component
 public class CatBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
     @Bean
@@ -22,7 +23,7 @@ public class CatBeanDefinitionRegistryPostProcessor implements BeanDefinitionReg
 
     @Override
     public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
-        // 注册beanDefinition
+        // 注册beanDefinition 把不是spring管理的类交给spring管理
         BeanDefinition bd = new GenericBeanDefinition();
         bd.setBeanClassName("extensionPoint.api.Car");
         registry.registerBeanDefinition("car", bd);

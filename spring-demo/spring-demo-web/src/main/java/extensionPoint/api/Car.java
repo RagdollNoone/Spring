@@ -15,7 +15,15 @@ public class Car implements Engine {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void setTyre(Tyre tyre) {
         this.tyre = tyre;
+    }
+
+    public Tyre getTyre() {
+        return tyre;
     }
 }
