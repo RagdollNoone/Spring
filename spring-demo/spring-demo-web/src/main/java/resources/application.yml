@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.20.129:3306/test?characterEncoding=utf-8&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: dendy
+    password: Zsh@727596853
+
+    druid:
+      web-stat-filter:
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*" #不统计这些请求数据
+        stat-view-servlet: #访问监控网页的登录用户名和密码
+          login-username: druid
+          login-password: druid
+        validation-query: SELECT 1
