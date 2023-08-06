@@ -15,10 +15,10 @@ import static org.springframework.beans.factory.support.BeanDefinitionBuilder.ro
 @Component
 public class CatBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {
     @Bean
-    public Tyre tyre() {
-        Tyre tyre = new Tyre();
-        tyre.setColor("black");
-        return tyre;
+    public Tyre blackTyre() {
+        Tyre blackTyre = new Tyre();
+        blackTyre.setColor("black");
+        return blackTyre;
     }
 
     @Override
@@ -30,7 +30,7 @@ public class CatBeanDefinitionRegistryPostProcessor implements BeanDefinitionReg
 
         BeanDefinitionBuilder builder = rootBeanDefinition(Car.class);
         builder.addPropertyValue("name", "bmw");
-        builder.addPropertyReference("tyre", "tyre");
+        builder.addPropertyReference("tyre", "blackTyre");
 
         AbstractBeanDefinition enhanceBd = builder.getBeanDefinition();
         registry.registerBeanDefinition("myCar", enhanceBd);

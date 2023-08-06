@@ -10,7 +10,7 @@ public class CarBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         // 每一个bean都会通过这个BeanPostProcessor
-        System.out.println("do CarBeanPostProcessor ...");
+//        System.out.println("do CarBeanPostProcessor ...");
 
         if (bean instanceof Car && beanName.equals("myCar")) {
             Car car = (Car) bean;

@@ -14,8 +14,6 @@ public class ExampleController {
     @RequestMapping("test")
     public void test() {
         System.out.println("[ExampleController][test]start");
-        // do something here
-        myCar.start();
-        System.out.println("just for break");
+        System.out.println(myCar);
     }
 }

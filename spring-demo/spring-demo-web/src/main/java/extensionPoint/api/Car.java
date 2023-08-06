@@ -26,4 +26,12 @@ public class Car implements Engine {
     public Tyre getTyre() {
         return tyre;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", tyre=" + tyre +
+                '}';
+    }
 }
