@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import static org.springframework.beans.factory.support.BeanDefinitionBuilder.rootBeanDefinition;
 
+// 拦截order 1
 // 注册beanDefinition
 @Component
 public class CatBeanDefinitionRegistryPostProcessor implements BeanDefinitionRegistryPostProcessor {

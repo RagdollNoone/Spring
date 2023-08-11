@@ -5,6 +5,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
 
+// 拦截order 3
 @Component
 public class CarBeanPostProcessor implements BeanPostProcessor {
     @Override
