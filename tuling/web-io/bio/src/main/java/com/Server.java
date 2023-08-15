@@ -29,6 +29,7 @@ public class Server {
         private Socket socket = null;
 
         public ServerTask(Socket socket){
+            System.out.println("建立连接");
             this.socket = socket;
         }
 
