@@ -12,7 +12,7 @@ public class SynchronousQueueProducer implements Runnable {
     @Override
     public void run() {
         int i = 0;
-        while (true) {
+        while (i < 10) {
             System.out.println(Thread.currentThread().getName() + " Put: " + ++i);
             try {
                 blockingQueue.put(i);
