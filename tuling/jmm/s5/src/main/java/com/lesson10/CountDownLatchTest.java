@@ -15,7 +15,7 @@ public class CountDownLatchTest {
                     //准备完毕…… 运动员都阻塞在等待号令
                     countDownLatch.await();
                     String parter = "[" + Thread.currentThread().getName() + "]";
-                    System.out.println(parter + "run ... ");
+                    System.out.println(parter + "prepare to run ... ");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

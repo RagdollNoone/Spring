@@ -18,9 +18,9 @@ public class CglibDemo {
             public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
                 if (method.getName().equals("test")) {
                     System.out.println("before test");
-                    method.invoke(target, objects);
+                    Object result = method.invoke(target, objects);
                     System.out.println("after test");
-                    return null;
+                    return result;
                 }
 
                 return method.invoke(target, objects);
