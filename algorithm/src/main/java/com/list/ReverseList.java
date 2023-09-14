@@ -13,27 +13,17 @@ public class ReverseList {
         printList(newHead);
     }
 
-    public static Node constructList() {
-        Node node5 = new Node(5, null);
-        Node node4 = new Node(4, node5);
-        Node node3 = new Node(3, node4);
-        Node node2 = new Node(2, node3);
-        Node node1 = new Node(1, node2);
-
-        return node1;
-    }
-
     public static Node reverseList(Node head) {
-        Node currentNode = head;
-        Node currentNodePrev = null;
-        Node currentNodeNext = null;
+        Node currentNode = head; // 当前节点
+        Node currentNodePrev = null; // 当前节点的上一个节点
+        Node currentNodeNext = null; // 当前节点的下一个节点
 
         while (null != currentNode) {
-            currentNodeNext = currentNode.next;
-            currentNode.next = currentNodePrev;
-            currentNodePrev = currentNode;
+            currentNodeNext = currentNode.next; // 保存下一个待遍历的节点信息
+            currentNode.next = currentNodePrev; // 把当前节点的下一节点指向它的上一个节点
+            currentNodePrev = currentNode; // 把当前节点的上一个节点设置成当前节点
 
-            currentNode = currentNodeNext;
+            currentNode = currentNodeNext; // 更新当前节点 准备下次循环
         }
 
         return currentNodePrev;
@@ -47,12 +37,24 @@ public class ReverseList {
         Node current = head;
         Node currentNodeNext = head.next;
 
+        // 递归寻找最后一个节点
         Node newHead = reverseListRecursion(currentNodeNext);
 
-        current.next.next = current;
-        current.next = null;
+        // 两两节点进行处理
+        current.next.next = current; // 后一个节点指向前一个节点
+        current.next = null; // 前一个节点的下一个节点指向空 避免循环链表
 
-        return newHead;
+        return newHead; // 始终是反转后链表的头结点
+    }
+
+    public static Node constructList() {
+        Node node5 = new Node(5, null);
+        Node node4 = new Node(4, node5);
+        Node node3 = new Node(3, node4);
+        Node node2 = new Node(2, node3);
+        Node node1 = new Node(1, node2);
+
+        return node1;
     }
 
     public static void printList(Node head) {
