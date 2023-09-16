@@ -4,11 +4,6 @@ import java.util.HashMap;
 
 // 1 两数之和
 public class TwoSum {
-    public static void main(String[] args) {
-        int nums[] = new int[] {3, 3};
-        solution2(nums, 6);
-    }
-
     // 暴力解法
     public int[] solution(int[] nums, int target){
         int[] result = new int[2];
