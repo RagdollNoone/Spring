@@ -34,15 +34,15 @@ public class ReverseList {
             return head;
         }
 
-        Node current = head;
+        Node currentNode = head;
         Node currentNodeNext = head.next;
 
         // 递归寻找最后一个节点
         Node newHead = reverseListRecursion(currentNodeNext);
 
         // 两两节点进行处理
-        current.next.next = current; // 后一个节点指向前一个节点
-        current.next = null; // 前一个节点的下一个节点指向空 避免循环链表
+        currentNodeNext.next = currentNode; // 后一个节点指向前一个节点
+        currentNode.next = null; // 前一个节点的下一个节点指向空 避免循环链表
 
         return newHead; // 始终是反转后链表的头结点
     }
