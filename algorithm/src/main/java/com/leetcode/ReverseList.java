@@ -61,7 +61,7 @@ public class ReverseList {
     public static void printList(ListNode head) {
         ListNode node = head;
         while (null != node) {
-            System.out.print(node.value + " ");
+            System.out.print(node.val + " ");
             node = node.next;
         }
 
@@ -69,11 +69,11 @@ public class ReverseList {
     }
 
     private static class ListNode {
-        public int value;
+        public int val;
         public ListNode next;
 
-        public ListNode(int value, ListNode next) {
-            this.value = value;
+        public ListNode(int val, ListNode next) {
+            this.val = val;
             this.next = next;
         }
     }
