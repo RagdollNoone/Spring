@@ -1,7 +1,7 @@
 package com.leetcode;
 
 // 141 环形链表
-public class HasCycle141 {
+public class HasCycle {
     public static void main(String[] args) {
         ListNode head = constructList();
         boolean result = solution(head);
