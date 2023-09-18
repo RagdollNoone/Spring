@@ -10,15 +10,34 @@ public class DeleteDuplicates {
         printList(head);
     }
 
+//    public static ListNode solution(ListNode head) {
+//        if(null == head) return head;
+//
+//        ListNode currentNode = head;
+//        while (null != currentNode.next) {
+//            if (currentNode.val == currentNode.next.val) {
+//                currentNode.next = currentNode.next.next;
+//            } else {
+//                currentNode = currentNode.next;
+//            }
+//        }
+//
+//        return head;
+//    }
+
     public static ListNode solution(ListNode head) {
         if(null == head) return head;
 
-        ListNode currentNode = head;
-        while (null != currentNode.next) {
-            if (currentNode.val == currentNode.next.val) {
-                currentNode.next = currentNode.next.next;
+        ListNode slow = head;
+        ListNode fast = head.next;
+
+        while (null != fast) {
+            if (slow.val == fast.val) {
+                slow.next = fast.next;
+                fast = fast.next;
             } else {
-                currentNode = currentNode.next;
+                slow = slow.next;
+                fast = fast.next;
             }
         }
 
