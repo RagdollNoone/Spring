@@ -1,38 +1,40 @@
 use tuling;
 
+-- explain
 DROP TABLE IF EXISTS `actor`;
 CREATE TABLE `actor` (
-`id` int(11) NOT NULL,
-`name` varchar(45) DEFAULT NULL,
-`update_time` datetime DEFAULT NULL,
-PRIMARY KEY (`id`)
+  `id` int(11) NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `actor` (`id`, `name`, `update_time`) VALUES (1,'a','2017-12-22 15:27:18'), (2,'b','2017-12-22 15:27:18'), (3,'c','2017-12-22 15:27:18');
 
 DROP TABLE IF EXISTS `film`;
 CREATE TABLE `film` (
-`id` int(11) NOT NULL AUTO_INCREMENT,
-`name` varchar(10) DEFAULT NULL,
-PRIMARY KEY (`id`),
-KEY `idx_name` (`name`)
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_name` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `film` (`id`, `name`) VALUES (3,'film0'),(1,'film1'),(2,'film2');
 
 DROP TABLE IF EXISTS `film_actor`;
 CREATE TABLE `film_actor` (
-`id` int(11) NOT NULL,
-`film_id` int(11) NOT NULL,
-`actor_id` int(11) NOT NULL,
-`remark` varchar(255) DEFAULT NULL,
-PRIMARY KEY (`id`),
-KEY `idx_film_actor_id` (`film_id`,`actor_id`)
+  `id` int(11) NOT NULL,
+  `film_id` int(11) NOT NULL,
+  `actor_id` int(11) NOT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `idx_film_actor_id` (`film_id`,`actor_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `film_actor` (`id`, `film_id`, `actor_id`) VALUES (1,1,1),(2,1,2),(3,2,1);
+
 -- 简单使用
-select * from actor;
-explain select *  from actor;
+explain select * from actor;
 
 -- explain extended
 select * from film where id = 1;
@@ -105,3 +107,64 @@ explain select * from film_actor where film_id = 2;
 -- timestamp 4个字节
 -- datetime 8个字节
 -- 字段允许为空 需要额外一个字节存储该信息
+
+-- ref 字段
+
+-- rows 字段
+-- sql估计要读取并检测的行数
+
+-- filter 字段
+
+-- extra 字段
+explain select film_id from film_actor where film_id = 1; -- 索引排序
+explain select * from actor where name = 'a'; -- 使用where 未使用索引
+explain select * from film_actor where film_id > 1; -- 使用部分索引
+explain select distinct name from actor; -- 临时表 针对distinct
+explain select distinct name from film; -- 索引排序
+explain select * from actor order by name; -- 文件排序
+explain select * from film order by name; -- 索引排序
+explain select min(id) from film; -- 使用函数访问索引的某个字段
+
+-- 索引的实践
+use tuling;
+
+CREATE TABLE `employees` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(24) NOT NULL DEFAULT '' COMMENT '姓名',
+  `age` int(11) NOT NULL DEFAULT '0' COMMENT '年龄',
+  `position` varchar(20) NOT NULL DEFAULT '' COMMENT '职位',
+  `hire_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '入职时间',
+  PRIMARY KEY (`id`),
+  KEY `idx_name_age_position` (`name`,`age`,`position`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='员工记录表';
+
+INSERT INTO employees(name,age,position,hire_time) VALUES('LiLei',22,'manager',NOW());
+INSERT INTO employees(name,age,position,hire_time) VALUES('HanMeimei', 23,'dev',NOW());
+INSERT INTO employees(name,age,position,hire_time) VALUES('Lucy',23,'dev',NOW());
+
+-- 全值匹配
+explain select * from employees where name = 'LiLei'; -- key_len/74  ref/const
+explain select * from employees where name = 'LiLei' and age = 22; -- key_len/78 ref/const,const
+explain select * from employees where name = 'LiLei' and age = 22 and position = 'manager'; -- key_len/140 ref/const,const,const
+
+-- 最左前缀法则
+explain select * from employees where name = 'Bill' and age = 31; -- 使用了索引
+explain select * from employees where age = 30 and position = 'dev'; -- 没有使用索引 不满足最左前缀法则
+explain select * from employees where position = 'manager'; -- 没有使用索引 不满足最左前缀法则
+
+-- 使用函数 导致索引失效
+explain select * from employees where name = 'LiLei'; -- 使用了索引
+explain select * from employees where left(name, 3) = 'LiLei'; -- 使用函数表达式 使索引失效
+
+-- 时间戳 使用函数 导致索引失效
+alter table `employees` add index `idx_hire_time` (`hire_time`) using btree; -- 创建索引
+explain select * from employees where date(hire_time) = '2018-09-30'; -- 使用函数没有使用索引
+explain select * from employees where hire_time >= '2018-09-30 00:00:00' and hire_time <= '2018-09-30 23:59:59';
+alter table `employees` drop index `idx_hire_time`; -- 删除索引
+
+-- 部分满足最左前缀法则
+explain select * from employees where name = 'LiLei' and age = 22 and position = 'manager'; -- key_len/140
+explain select * from employees where name = 'LiLei' and age > 22 and position = 'manager'; -- key_len/78 索引使用到age为止
+
+-- 减少 select * 的使用
+explain select name, age, position from employees where name = 'LiLei' and age = 23 and position = 'manager';
