@@ -1,4 +1,4 @@
-package com;
+package com.toolUsage;
 
 public class Math {
     public static final int initData = 666;

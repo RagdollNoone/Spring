@@ -1,4 +1,4 @@
-package com;
+package com.toolUsage;
 
 public class DeadLockTest {
     private static Object lock1 = new Object();

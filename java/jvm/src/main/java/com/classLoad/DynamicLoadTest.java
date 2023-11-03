@@ -1,4 +1,4 @@
-package com;
+package com.classLoad;
 
 public class DynamicLoadTest {
     static {

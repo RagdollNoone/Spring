@@ -1,4 +1,4 @@
-package com;
+package com.classLoad;
 
 public class BaseTest {
     public static final int initData = 666;
