@@ -166,5 +166,31 @@ alter table `employees` drop index `idx_hire_time`; -- 删除索引
 explain select * from employees where name = 'LiLei' and age = 22 and position = 'manager'; -- key_len/140
 explain select * from employees where name = 'LiLei' and age > 22 and position = 'manager'; -- key_len/78 索引使用到age为止
 
--- 减少 select * 的使用
+-- 减少 select * 的使用 关注extra字段 TODO: 有什么区别 理解下来都使用了覆盖索引
 explain select name, age, position from employees where name = 'LiLei' and age = 23 and position = 'manager';
+explain select * from employees where name = 'LiLei' and age = 23 and position = 'manager';
+
+-- != 导致没有使用索引
+explain select * from employees where name != 'LiLei';
+
+-- is null, is not null都不会走索引
+explain select * from employees where name is not null;
+
+-- 通配符开头 全表扫描
+explain select * from employees where name like '%Lei'; -- 没有使用索引
+explain select * from employees where name like 'Lei%'; -- 使用了索引
+
+-- 字符串不添加引号 不走索引
+explain select * from employees where name = '1000';
+explain select * from employees where name = 1000;
+
+-- 少用or或者in 可能不会走索引
+explain select * from employees where name = 'LiLei' or name = 'HanMeiMei'; -- 没有使用索引
+
+-- 范围查询 可能走索引 可能不走
+alter table `employees` add index `idx_age` (`age`) using btree;
+explain select * from employees where age >= 1 and age <= 2000; -- 走了索引
+explain select * from employees where age >= 1 and age <= 1000; -- 拆分小范围 能帮助走索引
+explain select * from employees where age >= 1000 and age <= 2000;
+alter table `employees` drop index `idx_age`;
+
