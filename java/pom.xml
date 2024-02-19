@@ -6,4 +6,18 @@
     <groupId>bluemacaw</groupId>
     <artifactId>java</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <modules>
+        <module>algorithm</module>
+        <module>concurrent</module>
+        <module>design-pattern</module>
+        <module>jvm</module>
+        <module>zero-copy</module>
+    </modules>
 </project>
